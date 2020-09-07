@@ -21,15 +21,10 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: db-host
+    container_name: db
     ports:
       - 3306:3306
     volumes:
-      - ./docker/mysql/data:/var/lib/mysql
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    ports:
-      - 8888:80
-    depends_on:
-      - db
+      - ./docker/mysql/data:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
