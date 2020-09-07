@@ -6,7 +6,7 @@
             foreach ($result as $task) {
                 $id = $task["id"];
                 $array[$id]["title"] = $task['title'];
-                $array[$id]["description"] = $task['description'];
+                // $array[$id]["description"] = $task['description'];
             }
             echo json_encode($array, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         } else {
@@ -16,10 +16,11 @@
     function createTask($db) {
         if(!empty($_POST)) {
             $title = $_POST['title'];
-            $description = $_POST['description'];
+            // $description = $_POST['description'];
 
             try {
-                $sql = "INSERT INTO task (title, description) VALUES ('$title', '$description')";
+                $sql = "INSERT INTO task (title) VALUES ('$title')";
+                // $sql = "INSERT INTO task (title, description) VALUES ('$title', '$description')";
                 $result = $db->query($sql);
 
                 if ($result) {
@@ -41,7 +42,7 @@
             foreach ($result as $task) {
                 $id = $task["id"];
                 $array[$id]["title"] = $task['title'];
-                $array[$id]["description"] = $task['description'];
+                // $array[$id]["description"] = $task['description'];
                 echo json_encode($array, JSON_UNESCAPED_UNICODE);
             }
         } else {
@@ -55,9 +56,10 @@
         if(!empty($put_param))
         {
             $title = $put_param['title'];
-            $description = $put_param['description'];
+            // $description = $put_param['description'];
             try {
-                $sql = "UPDATE task SET title='$title', description='$description' WHERE id=$id";
+                $sql = "UPDATE task SET title='$title' WHERE id=$id";
+                // $sql = "UPDATE task SET title='$title', description='$description' WHERE id=$id";
                 $result = $db->query($sql);
                 echo '変更しました' . PHP_EOL;
             } catch (PDOException $e) {
