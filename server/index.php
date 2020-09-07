@@ -1,7 +1,7 @@
 <?php
 
 require "task.php";
-$db = new PDO('mysql:host=db;dbname=taskDB;charset=utf8mb4', 'root', 'root');
+$db = new PDO('mysql:host=db;dbname=task;charset=utf8mb4', 'root', 'root');
 $httpdmethod = $_SERVER['REQUEST_METHOD'];
 
 switch ($httpdmethod) {
