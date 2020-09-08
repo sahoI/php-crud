@@ -11,9 +11,9 @@ phpで簡単にcrud書いてみました。
     5. DB接続
     6. Docker起動(2)
     7. DB作成
-3. コード作成
-4. 動作確認
-5. 質問
+2. コード作成
+3. 動作確認
+4. 補足
 
 ## 0. phpについて
 phpはサーバー上で動くプログラミング言語
@@ -223,7 +223,7 @@ create table if not exists task (
 ```
 
 
-## 3. コード作成
+## 2. コード作成
 
 1. index.php
 
@@ -345,14 +345,14 @@ switch ($httpdmethod) {
 ?>
 ```
 
-## 4. 動作確認
+## 3. 動作確認
 - curl http://localhost:8080/api
 - curl http://localhost:8080/api/2
 - curl -X POST -d 'title=*test*' http://localhost:8080/api
 - curl -X PUT -d 'title=*updated*' http://localhost:8080/api/:id
 - curl -X DELETE http://localhost:8080/api/:id
 
-## 5. 補足
+## 4. 補足
 [jsonのフォーマットについて](https://www.php.net/manual/ja/function.json-encode.php)
 
 > json_encode($array, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)
