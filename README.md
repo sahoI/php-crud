@@ -2,6 +2,7 @@
 phpで簡単にcrud書いてみました。
 
 ## 手順
+0. phpについて
 1. Dockerのセットアップ
     1. ファイル構成
     2. ファイル作成
@@ -19,7 +20,8 @@ phpはサーバー上で動くプログラミング言語
 
 **サーバーが必要**
 
-図?
+![](https://i.imgur.com/011Tgn3.png)
+
 
 ## 1. Dockerのセットアップ
 ### 1. ファイル構成
@@ -350,3 +352,25 @@ switch ($httpdmethod) {
 - curl -X PUT -d 'title=*updated*' http://localhost:8080/api/:id
 - curl -X DELETE http://localhost:8080/api/:id
 
+## 5. 補足
+[jsonのフォーマットについて](https://www.php.net/manual/ja/function.json-encode.php)
+
+> json_encode($array, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)
+`
+```
+{
+    "1": {
+        "title": "test"
+    },
+    "2": {
+        "title": "aaa"
+    }
+}
+```
+
+> json_encode($array, JSON_UNESCAPED_UNICODE)
+```
+{ “1”: { “title”: “test”}, “2”: { “title”: “aaa” } }
+```
+
+[PDOについて](https://www.php.net/manual/ja/pdo.drivers.php)
