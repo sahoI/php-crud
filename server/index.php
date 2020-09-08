@@ -6,7 +6,7 @@ $httpdmethod = $_SERVER['REQUEST_METHOD'];
 
 switch ($httpdmethod) {
     case 'GET':
-        if (preg_match('/[a][p][i]\/[0-9]/', $_SERVER["REQUEST_URI"])) {
+        if (preg_match('/[api]\/[0-9]/', $_SERVER["REQUEST_URI"])) {
             $id = preg_replace('/[^0-9]/', '', $_SERVER["REQUEST_URI"]);
             getTask($db, $id);
         } elseif ($_SERVER["REQUEST_URI"] == '/api') {
